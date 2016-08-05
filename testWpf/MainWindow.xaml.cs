@@ -24,5 +24,11 @@ namespace testWpf
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("yo");
+
+        }
     }
 }

@@ -1,6 +1,9 @@
-﻿<Window x:Class="testWpf.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="testWpf.MainWindow"
         Title="MainWindow" 
         Height="768" 
         Width="1366"
@@ -10,7 +13,88 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- data template used for the dialogs example, defines a View for a ViewModel of type DateTime  -->
+            <DataTemplate DataType="{x:Type system:DateTime}">
+                <StackPanel Margin="16">
+                    <TextBlock><Run Text="England win the World Cup:"/></TextBlock>
+                    <TextBlock Margin="0 8 0 0" Text="{Binding ''}" />
+                    <TextBlock Margin="0 8 0 0" ><Run Text="You will never see that again."/></TextBlock>
+                    <Button  Margin="0 8 0 0" IsDefault="True" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Content="AWESOME"/>
+                </StackPanel>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid>
 
+
+        <materialDesign:DialogHost Identifier="RootDialog">
+            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsChecked, ElementName=MenuToggleButton}">
+                <materialDesign:DrawerHost.LeftDrawerContent>
+                    <DockPanel MinWidth="212">
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+        					DockPanel.Dock="Top"
+        					HorizontalAlignment="Right" Margin="16"
+        					IsChecked="{Binding IsChecked, ElementName=MenuToggleButton, Mode=TwoWay}" />
+                        <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="domain:DemoItem">
+                                    <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                    </DockPanel>
+                </materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel>
+                    <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
+        				Mode="PrimaryMid" DockPanel.Dock="Top">
+                        <DockPanel>
+                            <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
+        						x:Name="MenuToggleButton"/>
+                            <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                                <StackPanel>
+                                    <Button Content="Hello World" Click="Button_Click"/>
+                                    <Button Content="Nice Popup" Click="Button_Click"/>
+                                    <Button Content="Goodbye" Click="Button_Click"/>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"><Run Text="Material Design In XAML Toolkit"/></TextBlock>
+                        </DockPanel>
+                    </materialDesign:ColorZone>
+
+                </DockPanel>
+            </materialDesign:DrawerHost>
+        </materialDesign:DialogHost>
+
+
+        <materialDesign:TimePicker Height="28"  VerticalAlignment="Top" Margin="328,406,0,0" HorizontalAlignment="Left" Width="218"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="231.074,165.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,210.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <Label Content="SubCategory" HorizontalAlignment="Left" Margin="231.074,223.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,271.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <Label Content="Price (KHR)" HorizontalAlignment="Left" Margin="231.074,284.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,334.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <Label Content="Price (USD)" HorizontalAlignment="Left" Margin="231.074,347.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,96.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="231.074,109.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="404,468,0,0" VerticalAlignment="Top" Width="104" Background="#FFF44336" Click="Button_Click"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="542,468,0,0" VerticalAlignment="Top" Width="262"/>
+        <Label Content="Created At" HorizontalAlignment="Left" Margin="231.074,406.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
+        <DatePicker HorizontalAlignment="Left" Margin="576,406,0,0" VerticalAlignment="Top" RenderTransformOrigin="9.976,1.865" Width="228" Height="28"/>
+
+        <ComboBox Height="31" VerticalAlignment="Top" Margin="328,158,0,0" HorizontalAlignment="Left" Width="476"/>
     </Grid>
+
+
+
 </Window>
