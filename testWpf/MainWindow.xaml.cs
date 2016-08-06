@@ -17,11 +17,9 @@ using testWpf.model.dao;
 
 namespace testWpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private ProductDao dao = new ProductDao();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,20 +27,11 @@ namespace testWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProductDao dao = new ProductDao();
-                Product product = new Product();
-                product.id = 7;
-                product.name = "sdfsd";
-            try
-                {
-                    dao.addProduct(product);
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-
-            
+            try {
+                dao.addProduct(new Product { name = "Ice Latte", subCategoryId = 1, priceKHR = 12000, priceUSD = 3, isPackage = false, isDeleted = false, createdBy = "1", createdAt = DateTime.Now, updatedAt = DateTime.Now, updatedBy = "1" });
+            } catch(Exception ex){
+                MessageBox.Show(ex.ToString());
+            }           
         }
 
     }

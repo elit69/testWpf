@@ -12,6 +12,8 @@ namespace testWpf.model.entity
         [Key]
         public int id { get; set; }
 
+        [Column("name", TypeName = "nvarchar")]
+        [Index(IsUnique = true)]
         [StringLength(255)]
         public string name { get; set; }
 
@@ -25,9 +27,11 @@ namespace testWpf.model.entity
 
         public Boolean isDeleted { get; set; }
 
+        [Required] 
         [StringLength(10)]
         public string createdBy { get; set; }
 
+        [Required] 
         [StringLength(10)]
         public string updatedBy { get; set; }
 

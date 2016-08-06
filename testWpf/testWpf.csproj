@@ -76,6 +76,18 @@
     <Compile Include="Migrations\201608061315035_init.Designer.cs">
       <DependentUpon>201608061315035_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608061401338_update_product.cs" />
+    <Compile Include="Migrations\201608061401338_update_product.Designer.cs">
+      <DependentUpon>201608061401338_update_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608061426137_update.cs" />
+    <Compile Include="Migrations\201608061426137_update.Designer.cs">
+      <DependentUpon>201608061426137_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608061434060_updateasd.cs" />
+    <Compile Include="Migrations\201608061434060_updateasd.Designer.cs">
+      <DependentUpon>201608061434060_updateasd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Entity\Product.cs" />
     <Page Include="MainWindow.xaml">
@@ -109,6 +121,15 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201608061315035_init.resx">
       <DependentUpon>201608061315035_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608061401338_update_product.resx">
+      <DependentUpon>201608061401338_update_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608061426137_update.resx">
+      <DependentUpon>201608061426137_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608061434060_updateasd.resx">
+      <DependentUpon>201608061434060_updateasd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
