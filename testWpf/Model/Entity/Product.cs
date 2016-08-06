@@ -6,40 +6,31 @@ namespace testWpf
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("stock.tbProduct")]
+    [Table("stock.Product")]
     public partial class Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public int id { get; set; }
 
-        [StringLength(255)]
         public string name { get; set; }
 
-        [StringLength(255)]
-        public string subcategoryid { get; set; }
+        public Int16 subCategoryId { get; set; }
 
-        [StringLength(255)]
-        public string price_khr { get; set; }
+        public Decimal priceKHR { get; set; }
 
-        [StringLength(255)]
-        public string price_usd { get; set; }
+        public Decimal priceUSD { get; set; }
 
-        [StringLength(255)]
-        public string created_by { get; set; }
+        public Boolean isPackage { get; set; }
 
-        [StringLength(1)]
-        public string updated_by { get; set; }
+        public Boolean isDeleted { get; set; }
 
-        [StringLength(255)]
-        public string created_at { get; set; }
+        public string createdBy { get; set; }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime? updated_at { get; set; }
+        public string updatedBy { get; set; }
 
-        [StringLength(255)]
-        public string is_package { get; set; }
+        public DateTime createdAt { get; set; }
 
-        [StringLength(255)]
-        public string is_deleted { get; set; }
+        public DateTime updatedAt { get; set; }
+
     }
 }
