@@ -1,11 +1,12 @@
-namespace testWpf
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+using System;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using testWpf.model.entity;
 
-    public partial class CoffeeContext : DbContext
+namespace testWpf.model
+{
+    public class CoffeeContext : DbContext
     {
         public CoffeeContext()
             : base("name=CoffeeContext")

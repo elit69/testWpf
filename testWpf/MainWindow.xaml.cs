@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using testWpf.Model;
+using testWpf.model.entity;
+using testWpf.model.dao;
 
 namespace testWpf
 {

@@ -4,15 +4,17 @@ namespace testWpf.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using testWpf.model;
+    using testWpf.model.entity;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<testWpf.CoffeeContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<testWpf.model.CoffeeContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(testWpf.CoffeeContext context)
+        protected override void Seed(testWpf.model.CoffeeContext context)
         {
             context.Products.AddOrUpdate(
                 new Product { name = "Ice Latte", subCategoryId = 1, priceKHR = 12000, priceUSD = 3, isPackage = false, isDeleted = false, createdBy = "1", createdAt = DateTime.Now, updatedAt = DateTime.Now, updatedBy = "1" },

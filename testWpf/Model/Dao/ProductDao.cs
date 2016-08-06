@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using testWpf.model.entity;
 
-namespace testWpf.Model
+namespace testWpf.model.dao
 {
     class ProductDao
     {
