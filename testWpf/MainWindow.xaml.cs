@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using testWpf.Model;
 
 namespace testWpf
 {
@@ -27,8 +28,21 @@ namespace testWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("yo");
+            ProductDao dao = new ProductDao();
+                Product product = new Product();
+                product.id = 7;
+                product.name = "sdfsd";
+            try
+                {
+                    dao.addProduct(product);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
 
+            
         }
+
     }
 }

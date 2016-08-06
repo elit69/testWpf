@@ -79,20 +79,20 @@
 
         <materialDesign:TimePicker Height="28"  VerticalAlignment="Top" Margin="328,406,0,0" HorizontalAlignment="Left" Width="218"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="231.074,165.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,210.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <TextBox x:Name="txtSub" HorizontalAlignment="Left" Height="35" Margin="328.076,210.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
         <Label Content="SubCategory" HorizontalAlignment="Left" Margin="231.074,223.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,271.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <TextBox x:Name="txtPriceKH" HorizontalAlignment="Left" Height="35" Margin="328.076,271.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
         <Label Content="Price (KHR)" HorizontalAlignment="Left" Margin="231.074,284.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,334.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <TextBox x:Name="txtPriceUS" HorizontalAlignment="Left" Height="35" Margin="328.076,334.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
         <Label Content="Price (USD)" HorizontalAlignment="Left" Margin="231.074,347.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
-        <TextBox HorizontalAlignment="Left" Height="35" Margin="328.076,96.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="35" Margin="328.076,96.169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontSize="14" />
         <Label Content="ID" HorizontalAlignment="Left" Margin="231.074,109.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
         <Button Content="Clear" HorizontalAlignment="Left" Margin="404,468,0,0" VerticalAlignment="Top" Width="104" Background="#FFF44336" Click="Button_Click"/>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="542,468,0,0" VerticalAlignment="Top" Width="262"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="542,468,0,0" VerticalAlignment="Top" Width="262" Click="Button_Click"/>
         <Label Content="Created At" HorizontalAlignment="Left" Margin="231.074,406.169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.124,2.741"/>
         <DatePicker HorizontalAlignment="Left" Margin="576,406,0,0" VerticalAlignment="Top" RenderTransformOrigin="9.976,1.865" Width="228" Height="28"/>
 
-        <ComboBox Height="31" VerticalAlignment="Top" Margin="328,158,0,0" HorizontalAlignment="Left" Width="476"/>
+        <ComboBox x:Name="___No_Name_" Height="31" VerticalAlignment="Top" Margin="328,158,0,0" HorizontalAlignment="Left" Width="476"/>
     </Grid>
 
 
