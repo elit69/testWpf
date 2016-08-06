@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using testWpf.model.entity;
 
 namespace testWpf.model.dao
@@ -18,13 +19,8 @@ namespace testWpf.model.dao
 
         public List<Product> listProduct(){
             using (var db = new CoffeeContext()) {
-                List<Product> list = new List<Product>();
-                var query = from b in db.Products select b;
-                foreach(var item in query){
-                    Product product = new Product();
-                    product.id = item.id;
-                    product.name = item.name;
-                }
+             
+               List<Product> list = db.Products.SqlQuery("SELECT * FROM stock.Product").ToList(); 
                 return list;
             }
         }

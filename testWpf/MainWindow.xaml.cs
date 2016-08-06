@@ -12,14 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using testWpf.model.entity;
 using testWpf.model.dao;
+using testWpf.model;
+using testWpf.Helper;
 
 namespace testWpf
 {
     public partial class MainWindow : Window
     {
-        private ProductDao dao = new ProductDao();
+        private ProductDao productDao = new ProductDao();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,10 +32,14 @@ namespace testWpf
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try {
-                dao.addProduct(new Product { name = "Ice Latte", subCategoryId = 1, priceKHR = 12000, priceUSD = 3, isPackage = false, isDeleted = false, createdBy = "1", createdAt = DateTime.Now, updatedAt = DateTime.Now, updatedBy = "1" });
+                productDao.addProduct(new Product { name = "Ice Ldatte", subCategoryId = 1, priceKHR = 12000, priceUSD = 3, isPackage = false, isDeleted = false, createdBy = "1", createdAt = DateTime.Now, updatedAt = DateTime.Now, updatedBy = "1" });
+                
             } catch(Exception ex){
-                MessageBox.Show(ex.ToString());
-            }           
+                MessageBox.Show(ex.Message);
+            }
+            Debug.debugJson(productDao.listProduct());
+            //Debug.debugJson(new Product { name = "Ice Latte", subCategoryId = 1, priceKHR = 12000, priceUSD = 3, isPackage = false, isDeleted = false, createdBy = "1", createdAt = DateTime.Now, updatedAt = DateTime.Now, updatedBy = "1" });
+            //using (var db = new CoffeeContext()){Debug.debugJson(db.Products.First());}
         }
 
     }
