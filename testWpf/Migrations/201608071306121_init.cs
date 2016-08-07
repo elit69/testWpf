@@ -12,23 +12,25 @@ namespace testWpf.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        name = c.String(),
+                        name = c.String(nullable: false, maxLength: 255),
                         subCategoryId = c.Short(nullable: false),
                         priceKHR = c.Decimal(nullable: false, precision: 18, scale: 2),
                         priceUSD = c.Decimal(nullable: false, precision: 18, scale: 2),
                         isPackage = c.Boolean(nullable: false),
                         isDeleted = c.Boolean(nullable: false),
-                        createdBy = c.String(),
-                        updatedBy = c.String(),
+                        createdBy = c.String(nullable: false, maxLength: 10, unicode: false),
+                        updatedBy = c.String(nullable: false, maxLength: 10, unicode: false),
                         createdAt = c.DateTime(nullable: false),
                         updatedAt = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.id)
+                .Index(t => t.name, unique: true);
             
         }
         
         public override void Down()
         {
+            DropIndex("stock.Product", new[] { "name" });
             DropTable("stock.Product");
         }
     }
